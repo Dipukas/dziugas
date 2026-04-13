@@ -6,7 +6,7 @@
     <title>DŽIUGAS AI-Guardian — Board Presentation</title>
     <meta name="description" content="AI-Guardian: Computer vision quality control for Džiugas premium cheese ripening. Strategic proposal for the board of Žemaitijos Pienas AB.">
     <meta name="author" content="promptanatomy.app">
-    <meta name="version" content="1.7.2">
+    <meta name="version" content="1.7.6">
     <meta name="date" content="2026-04-13">
     <meta name="theme-color" content="#0A0A0A">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -982,16 +982,26 @@
 
         .footer-inner {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(140px, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+
+        .footer-col {
+            min-width: 0;
         }
 
         .footer-brand {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-logo {
@@ -1014,6 +1024,48 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-muted);
+        }
+
+        .footer-description {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            max-width: 420px;
+        }
+
+        .footer-heading {
+            margin-bottom: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .footer-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-list a {
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-list a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            width: 100%;
         }
 
         .footer-legal {
@@ -1076,6 +1128,17 @@
             a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
             .heatmap-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
         }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1123,8 +1186,8 @@
                 Džiugas wheels age for 12 to 120 months. AI-Guardian detects defects early and helps keep quality consistent.
             </p>
             <div class="reveal reveal-delay-3">
-                <a href="#pilot" class="hero-cta">
-                    View pilot plan <i class="fa-solid fa-arrow-down"></i>
+                <a href="mailto:info@promptanatomy.app" class="hero-cta">
+                    Book a 30-min call <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
             <div class="hero-media reveal reveal-delay-3">
@@ -1198,19 +1261,19 @@
                 <div class="problem-card glass reveal">
                     <div class="problem-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
                     <h3>Ripening Vulnerability</h3>
-                    <p>Thousands of wheels age at once. Even small environmental shifts between inspections can affect a full batch.</p>
+                    <p>Thousands of wheels age at once. Small environmental shifts can affect a full batch.</p>
                     <div class="problem-stat">Up to 10 years of value built into each wheel</div>
                 </div>
                 <div class="problem-card glass reveal reveal-delay-1">
                     <div class="problem-icon"><i class="fa-solid fa-users-slash"></i></div>
                     <h3>Labor Pressure</h3>
-                    <p>European dairy faces labor shortages. Manual inspection varies across shifts, which makes quality grading less consistent.</p>
+                    <p>Labor shortages persist. Manual inspection differs across shifts, so grading is inconsistent.</p>
                     <div class="problem-stat">Growing workforce gap across EU dairy</div>
                 </div>
                 <div class="problem-card glass reveal reveal-delay-2">
                     <div class="problem-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
                     <h3>Batch Loss Risk</h3>
-                    <p>A single undetected mold event can spread to adjacent wheels and affect the entire batch.</p>
+                    <p>A single undetected mold event can spread to adjacent wheels and damage the batch.</p>
                     <div class="problem-stat">Cascade failure across shared cellars</div>
                 </div>
             </div>
@@ -1258,7 +1321,7 @@
                 <div class="pipeline-step glass reveal">
                     <div class="step-number">1</div>
                     <h3>Capture</h3>
-                    <p>During turning, a 4K camera captures each wheel surface without disrupting the workflow.</p>
+                    <p>A 4K camera captures each wheel surface without workflow disruption.</p>
                 </div>
                 <div class="pipeline-step glass reveal reveal-delay-1">
                     <div class="step-number">2</div>
@@ -1268,7 +1331,7 @@
                 <div class="pipeline-step glass reveal reveal-delay-2">
                     <div class="step-number">3</div>
                     <h3>Act</h3>
-                    <p>The system sends real-time alerts and stores inspection history for each wheel.</p>
+                    <p>The system sends real-time alerts and stores each wheel inspection history.</p>
                 </div>
             </div>
 
@@ -1277,7 +1340,7 @@
                     <div class="benefit-icon"><i class="fa-solid fa-eye"></i></div>
                     <div>
                         <h4>100% wheel inspection coverage</h4>
-                        <p>Consistent grading criteria applied to every wheel, every cycle — eliminating human subjectivity.</p>
+                        <p>Consistent grading criteria for every wheel in every cycle.</p>
                     </div>
                 </div>
                 <div class="benefit-item glass reveal reveal-delay-1">
@@ -1291,7 +1354,7 @@
                     <div class="benefit-icon"><i class="fa-solid fa-fingerprint"></i></div>
                     <div>
                         <h4>Digital Traceability</h4>
-                        <p>Full per-wheel history from production to export — supporting PGI compliance and premium market requirements.</p>
+                        <p>Full per-wheel history from production to export.</p>
                     </div>
                 </div>
             </div>
@@ -1308,10 +1371,10 @@
             <div style="text-align:center; max-width:680px; margin:0 auto; margin-bottom:48px;" class="reveal">
                 <div class="section-label" style="justify-content:center;">Strategic Roadmap</div>
                 <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
-                    Phased AI <span class="gold-text">Priorities</span>
+                    AI <span class="gold-text">Priorities</span>
                 </h2>
                 <p style="color:var(--text-secondary); font-size:15px;">
-                    Three tiers of AI initiative, sequenced by strategic impact and implementation readiness.
+                    Three initiatives sequenced by impact and readiness.
                 </p>
             </div>
 
@@ -1325,10 +1388,10 @@
                         <span class="badge" style="color:var(--phase-core); border-color:rgba(234,184,50,0.3);">Core · Phase 1</span>
                     </div>
                     <h3>AI-Guardian</h3>
-                    <p>Computer vision quality control for the ripening process. Immediate, high-impact protection of the brand's most valuable asset.</p>
+                    <p>Computer vision quality control for ripening. Fastest path to quality-risk reduction.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label" style="color:var(--phase-core);">Goal</div>
-                        <div class="strategy-focus-value">"Protect every wheel from cellar to export."</div>
+                        <div class="strategy-focus-value">Protect every wheel across the full cycle.</div>
                     </div>
                 </div>
                 <!-- STRATEGIC -->
@@ -1340,10 +1403,10 @@
                         <span class="badge" style="color:var(--phase-strategic); border-color:rgba(59,130,246,0.3);">Strategic · Phase 2</span>
                     </div>
                     <h3>Supply Chain Optimizer</h3>
-                    <p>Demand forecasting and logistics optimization for 40+ export markets — especially critical given post-2022 market redirection from Russia, Belarus, and China.</p>
+                    <p>Demand forecasting and logistics optimization for 40+ export markets.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label" style="color:var(--phase-strategic);">Goal</div>
-                        <div class="strategy-focus-value">"Global supply chain resilience and efficiency."</div>
+                        <div class="strategy-focus-value">Increase supply chain resilience and speed.</div>
                     </div>
                 </div>
                 <!-- EXPLORE -->
@@ -1355,16 +1418,16 @@
                         <span class="badge" style="color:var(--phase-explore); border-color:rgba(16,185,129,0.3);">Explore · Phase 3</span>
                     </div>
                     <h3>Consumer Intelligence</h3>
-                    <p>Sentiment analysis and market trend detection to refine branding, accelerate packaging innovation, and inform positioning across new markets.</p>
+                    <p>Market signals and consumer insights for faster product decisions.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label" style="color:var(--phase-explore);">Goal</div>
-                        <div class="strategy-focus-value">"Data-driven speed in marketing decisions."</div>
+                        <div class="strategy-focus-value">Faster marketing decisions backed by data.</div>
                     </div>
                 </div>
             </div>
 
             <div class="glass reveal" style="padding:36px;">
-                <div style="font-size:13px; font-weight:700; margin-bottom:24px;">Priority Heatmap</div>
+                <div style="font-size:13px; font-weight:700; margin-bottom:24px;">Priority Focus</div>
                 <div class="heatmap">
                     <div class="heatmap-row">
                         <div class="heatmap-label" style="color:var(--phase-core);">
@@ -1497,8 +1560,8 @@
                     We automate inspection to make quality control faster and more consistent.
                 </blockquote>
                 <div class="closing-attr">Design philosophy — AI-Guardian Project</div>
-                <a href="mailto:hello@promptanatomy.app" class="closing-cta">
-                    Book a 30-minute call <i class="fa-solid fa-arrow-right"></i>
+                <a href="mailto:info@promptanatomy.app" class="closing-cta">
+                    Book a 30-min call <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </section>
@@ -1507,14 +1570,41 @@
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
         <div class="container footer-inner">
-            <div class="footer-brand">
-                <div class="footer-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
-                <span>AI-Guardian by Prompt Anatomy</span>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <div class="footer-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
+                        <span>AI-Guardian by Prompt Anatomy</span>
+                    </div>
+                    <p class="footer-description">We deploy an AI operating model: faster inspection, clear traceability, consistent decisions.</p>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-heading">System</div>
+                    <ul class="footer-list">
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#strategy">Roadmap</a></li>
+                        <li><a href="#pilot">Pilot</a></li>
+                        <li><a href="#principle">Principle</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-heading">Network</div>
+                    <ul class="footer-list">
+                        <li><a href="https://www.promptanatomy.app/" aria-label="Visit Prompt Anatomy website">Website</a></li>
+                        <li><a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn">LinkedIn</a></li>
+                        <li><a href="mailto:info@promptanatomy.app" aria-label="Email Prompt Anatomy">Email</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-legal">&copy; 2026 promptanatomy.app · Built on Prompt Anatomy AI Operating System · For internal strategic use</div>
-            <div class="footer-links">
-                <a href="https://www.promptanatomy.app/" aria-label="Visit Prompt Anatomy website"><i class="fa-solid fa-globe"></i></a>
-                <a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">&copy; 2026 promptanatomy.app · Built on Prompt Anatomy AI Operating System · For internal strategic use</div>
+                <div class="footer-links">
+                    <a href="https://www.promptanatomy.app/" aria-label="Visit Prompt Anatomy website"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </footer>

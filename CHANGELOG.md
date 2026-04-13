@@ -8,6 +8,47 @@
 
 ---
 
+## [v1.7.6] — 2026-04-13
+
+### Lean Messaging Refresh (LT + EN)
+
+**Changed**
+- Applied a lean-copy pass across key sections in both localized pages:
+  - `index.html`
+  - `index.en.html`
+- Compressed Hero, Problem, Solution, Strategy, and Closing microcopy to reduce narrative noise and improve first-read clarity.
+- Kept the heatmap visual in Strategy while tightening labels and priority card text.
+- Shortened footer descriptive copy for faster scanning in LT and EN.
+- Standardized all CTA/email links to:
+  - `mailto:info@promptanatomy.app`
+- Updated CTA phrasing to shorter action-first variants for board-level readability.
+
+**Result**
+- Stronger message hierarchy, faster comprehension, and consistent conversion path with one email endpoint.
+
+---
+
+## [v1.7.5] — 2026-04-13
+
+### Footer Minimal Enhance (LT + EN)
+
+**Changed**
+- Reworked footer structure from a compact single-row bar to a clearer 3-block layout in:
+  - `index.html`
+  - `index.en.html`
+- Added a responsive footer grid with:
+  - brand block (logo + short description)
+  - system links block
+  - network links block
+- Kept legal/compliance messaging in a dedicated bottom row (`footer-bottom`) to preserve prior internal-use wording.
+- Localized footer block headings, labels, and microcopy for LT and EN while keeping structural parity.
+- Bumped document meta versions to `1.7.5` in both localized pages.
+
+**Result**
+- Footer is now closer to the parent-site information architecture while preserving Džiugas one-pager visual identity and readability.
+
+---
+
 ## [v1.7.4] — 2026-04-13
 
 ### LT/EN Microcopy Compression & Tone Neutralization

@@ -6,7 +6,7 @@
     <title>DŽIUGAS AI-Guardian — Valdybos pristatymas</title>
     <meta name="description" content="AI-Guardian: kompiuterinės regos kokybės kontrolė Džiugas premium sūrio brandinimui. Strateginis pasiūlymas Žemaitijos Pienas AB valdybai.">
     <meta name="author" content="promptanatomy.app">
-    <meta name="version" content="1.7.2">
+    <meta name="version" content="1.7.6">
     <meta name="date" content="2026-04-13">
     <meta name="theme-color" content="#0A0A0A">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1157,16 +1157,26 @@
 
         .footer-inner {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(140px, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+
+        .footer-col {
+            min-width: 0;
         }
 
         .footer-brand {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-logo {
@@ -1189,6 +1199,48 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-muted);
+        }
+
+        .footer-description {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            max-width: 420px;
+        }
+
+        .footer-heading {
+            margin-bottom: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .footer-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-list a {
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-list a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            width: 100%;
         }
 
         .footer-legal {
@@ -1268,6 +1320,14 @@
             .nav-cta { display: none; }
             .nav-title { font-size: 14px; }
             .hero { padding-top: 136px; }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
             .timeline-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1304,7 +1364,7 @@
                     <a href="#pilot">Pilotas</a>
                     <a href="#principle">Principas</a>
                 </div>
-                <a href="mailto:hello@promptanatomy.app" class="nav-cta">30 min. pokalbis</a>
+                <a href="mailto:info@promptanatomy.app" class="nav-cta">30 min. pokalbis</a>
                 <div class="nav-attr"><span class="text-accent">&#9889;</span> Parengė <strong class="text-secondary">promptanatomy.app</strong></div>
                 <div class="lang-switch" aria-label="Kalbos pasirinkimas">
                     <a href="./index.lt.html" class="is-active">LT</a>
@@ -1330,7 +1390,7 @@
                 Džiugo ratai brandinami 12-120 mėnesių. AI-Guardian anksti aptinka defektus ir padeda išlaikyti vienodą kokybę.
             </p>
             <div class="reveal reveal-delay-3">
-                <a href="mailto:hello@promptanatomy.app" class="hero-cta">
+                <a href="mailto:info@promptanatomy.app" class="hero-cta">
                     30 min. pokalbis <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -1405,19 +1465,19 @@
                 <div class="problem-card glass reveal">
                     <div class="problem-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
                     <h3>Brandinimo pažeidžiamumas</h3>
-                    <p>Tūkstančiai ratų brandinami vienu metu. Net maži aplinkos pokyčiai tarp patikrų gali paveikti visą partiją.</p>
+                    <p>Tūkstančiai ratų brandinami vienu metu. Maži aplinkos pokyčiai gali paveikti visą partiją.</p>
                     <div class="problem-stat">Iki 10 metų vertės kaupimas vienam ratui</div>
                 </div>
                 <div class="problem-card glass reveal reveal-delay-1">
                     <div class="problem-icon"><i class="fa-solid fa-users-slash"></i></div>
                     <h3>Darbo jėgos spaudimas</h3>
-                    <p>Europos pieno sektoriuje trūksta darbuotojų. Rankinė patikra skiriasi tarp pamainų, todėl kokybės klasifikacija tampa nenuosekli.</p>
+                    <p>Darbuotojų trūksta. Rankinė patikra skiriasi tarp pamainų, todėl kokybė vertinama nevienodai.</p>
                     <div class="problem-stat">Didėjantis darbuotojų trūkumas ES pienininkystėje</div>
                 </div>
                 <div class="problem-card glass reveal reveal-delay-2">
                     <div class="problem-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
                     <h3>Partijos praradimo rizika</h3>
-                    <p>Vienas neaptiktas pelėsio atvejis gali išplisti į gretimus ratus ir paveikti visą partiją.</p>
+                    <p>Vienas neaptiktas pelėsio atvejis gali išplisti į gretimus ratus ir paveikti partiją.</p>
                     <div class="problem-stat">Kaskadiniai nuostoliai bendruose rūsiuose</div>
                 </div>
             </div>
@@ -1465,7 +1525,7 @@
                 <div class="pipeline-step glass reveal">
                     <div class="step-number">1</div>
                     <h3>Fiksavimas</h3>
-                    <p>Vartymo metu 4K kamera fiksuoja kiekvieno rato paviršių be proceso trikdžių.</p>
+                    <p>4K kamera fiksuoja kiekvieno rato paviršių be proceso trikdžių.</p>
                 </div>
                 <div class="pipeline-step glass reveal reveal-delay-1">
                     <div class="step-number">2</div>
@@ -1475,7 +1535,7 @@
                 <div class="pipeline-step glass reveal reveal-delay-2">
                     <div class="step-number">3</div>
                     <h3>Veikimas</h3>
-                    <p>Sistema siunčia įspėjimus ir kaupia patikrų istoriją kiekvienam ratui.</p>
+                    <p>Sistema siunčia įspėjimus ir išsaugo kiekvieno rato patikrų istoriją.</p>
                 </div>
             </div>
 
@@ -1484,7 +1544,7 @@
                     <div class="benefit-icon"><i class="fa-solid fa-eye"></i></div>
                     <div>
                         <h4>100% ratų patikros aprėptis</h4>
-                        <p>Vienodi vertinimo kriterijai taikomi kiekvienam ratui kiekviename cikle - pašalinamas žmogiškasis subjektyvumas.</p>
+                        <p>Vienodi vertinimo kriterijai kiekvienam ratui kiekviename cikle.</p>
                     </div>
                 </div>
                 <div class="benefit-item glass reveal reveal-delay-1">
@@ -1498,7 +1558,7 @@
                     <div class="benefit-icon"><i class="fa-solid fa-fingerprint"></i></div>
                     <div>
                         <h4>Skaitmeninis atsekamumas</h4>
-                        <p>Pilna kiekvieno rato istorija nuo gamybos iki eksporto - palaikomas SGN atitikimas ir premium rinkų reikalavimai.</p>
+                        <p>Pilna kiekvieno rato istorija nuo gamybos iki eksporto.</p>
                     </div>
                 </div>
             </div>
@@ -1507,7 +1567,7 @@
                 <p><strong>Dizaino principas:</strong> AI-Guardian standartizuoja patikrą ir padeda komandai priimti greitesnius sprendimus.</p>
             </div>
             <div class="section-cta-wrap reveal">
-                <a href="mailto:hello@promptanatomy.app" class="section-cta">
+                <a href="mailto:info@promptanatomy.app" class="section-cta">
                     Aptarti pilotą <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -1520,10 +1580,10 @@
             <div class="section-intro section-intro-with-gap reveal">
                 <div class="section-label is-centered">Strateginis kelrodis</div>
                 <h2 class="section-heading">
-                    Etapiniai AI <span class="gold-text">prioritetai</span>
+                    AI <span class="gold-text">prioritetai</span>
                 </h2>
                 <p class="section-description">
-                    Trys AI iniciatyvų lygiai, išdėstyti pagal strateginį poveikį ir įgyvendinimo pasirengimą.
+                    Trys iniciatyvos pagal poveikį ir pasirengimą.
                 </p>
             </div>
 
@@ -1537,10 +1597,10 @@
                         <span class="badge phase-core">Pagrindas · 1 etapas</span>
                     </div>
                     <h3>AI-Guardian</h3>
-                    <p>Kompiuterinės regos kokybės kontrolė brandinimo procesui. Greita, didelio poveikio apsauga vertingiausiam prekės ženklo turtui.</p>
+                    <p>Kompiuterinės regos kokybės kontrolė brandinimui. Greičiausia ir didžiausio poveikio iniciatyva.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label phase-core">Tikslas</div>
-                        <div class="strategy-focus-value">„Apsaugoti kiekvieną ratą nuo rūsio iki eksporto.“</div>
+                        <div class="strategy-focus-value">Apsaugoti kiekvieną ratą visame cikle.</div>
                     </div>
                 </div>
                 <!-- STRATEGIC -->
@@ -1552,10 +1612,10 @@
                         <span class="badge phase-strategic">Strateginis · 2 etapas</span>
                     </div>
                     <h3>Tiekimo grandinės optimizatorius</h3>
-                    <p>Paklausos prognozavimas ir logistikos optimizavimas 40+ eksporto rinkoms - ypač svarbu po 2022 m. rinkų persiorientavimo iš Rusijos, Baltarusijos ir Kinijos.</p>
+                    <p>Paklausos prognozavimas ir logistika 40+ eksporto rinkoms.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label phase-strategic">Tikslas</div>
-                        <div class="strategy-focus-value">„Globalus tiekimo grandinės atsparumas ir efektyvumas.“</div>
+                        <div class="strategy-focus-value">Didinti tiekimo grandinės atsparumą ir greitį.</div>
                     </div>
                 </div>
                 <!-- EXPLORE -->
@@ -1567,16 +1627,16 @@
                         <span class="badge phase-explore">Plėtra · 3 etapas</span>
                     </div>
                     <h3>Vartotojų įžvalgos</h3>
-                    <p>Nuotaikų analizė ir rinkos tendencijų aptikimas, padedantys tobulinti prekės ženklą, spartinti pakuočių inovacijas ir formuoti pozicionavimą naujose rinkose.</p>
+                    <p>Rinkos signalai ir vartotojų įžvalgos greitesniems produktų sprendimams.</p>
                     <div class="strategy-focus">
                         <div class="strategy-focus-label phase-explore">Tikslas</div>
-                        <div class="strategy-focus-value">„Duomenimis grįstas rinkodaros sprendimų greitis.“</div>
+                        <div class="strategy-focus-value">Greitesni rinkodaros sprendimai pagal duomenis.</div>
                     </div>
                 </div>
             </div>
 
             <div class="glass heatmap-panel reveal">
-                <div class="heatmap-heading">Prioritetų žemėlapis</div>
+                <div class="heatmap-heading">Prioritetų fokusas</div>
                 <div class="heatmap">
                     <div class="heatmap-row">
                         <div class="heatmap-label phase-core">
@@ -1709,7 +1769,7 @@
                     Automatizuojame patikrą, kad kokybės kontrolė būtų greitesnė ir nuoseklesnė.
                 </blockquote>
                 <div class="closing-attr">Dizaino filosofija — AI-Guardian projektas</div>
-                <a href="mailto:hello@promptanatomy.app" class="closing-cta">
+                <a href="mailto:info@promptanatomy.app" class="closing-cta">
                     30 min. piloto pokalbis <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -1719,14 +1779,41 @@
     <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
         <div class="container footer-inner">
-            <div class="footer-brand">
-                <div class="footer-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
-                <span>AI-Guardian by Prompt Anatomy</span>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <div class="footer-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
+                        <span>AI-Guardian by Prompt Anatomy</span>
+                    </div>
+                    <p class="footer-description">Diegiame AI veikimo sistemą: greitesnė patikra, aiškus atsekamumas, nuoseklūs sprendimai.</p>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-heading">Sistema</div>
+                    <ul class="footer-list">
+                        <li><a href="#solution">Sprendimas</a></li>
+                        <li><a href="#strategy">Kelrodis</a></li>
+                        <li><a href="#pilot">Pilotas</a></li>
+                        <li><a href="#principle">Principas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-heading">Tinklas</div>
+                    <ul class="footer-list">
+                        <li><a href="https://www.promptanatomy.app/" aria-label="Prompt Anatomy svetainė">Svetainė</a></li>
+                        <li><a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn profilis">LinkedIn</a></li>
+                        <li><a href="mailto:info@promptanatomy.app" aria-label="Rašyti Prompt Anatomy el. paštu">El. paštas</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-legal">&copy; 2026 promptanatomy.app · Sukurta su Prompt Anatomy AI Operating System · Skirta vidiniam strateginiam naudojimui</div>
-            <div class="footer-links">
-                <a href="https://www.promptanatomy.app/" aria-label="Prompt Anatomy svetainė"><i class="fa-solid fa-globe"></i></a>
-                <a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn profilis"><i class="fa-brands fa-linkedin"></i></a>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">&copy; 2026 promptanatomy.app · Sukurta su Prompt Anatomy AI Operating System · Skirta vidiniam strateginiam naudojimui</div>
+                <div class="footer-links">
+                    <a href="https://www.promptanatomy.app/" aria-label="Prompt Anatomy svetainė"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn profilis"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </footer>
