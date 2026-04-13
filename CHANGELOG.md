@@ -8,6 +8,41 @@
 
 ---
 
+## [v1.7.4] — 2026-04-13
+
+### LT/EN Microcopy Compression & Tone Neutralization
+
+**Changed**
+- Shortened and de-romanticized high-impact narrative copy in:
+  - `index.html` (LT)
+  - `index.en.html` (EN)
+- Updated Hero, Brand, Problem, Solution, and Closing principle text blocks to be more factual and scannable.
+- Reduced manual-craft/pathos framing and aligned LT/EN semantic parity around operational quality messaging.
+- Tightened UI microcopy in both locales:
+  - CTA labels (shorter action wording)
+  - Section labels and heatmap headings
+  - KPI bullet phrasing for faster board-level readability
+
+**Result**
+- Clearer, shorter bilingual messaging with less emotional overstatement and stronger consistency across LT/EN pages.
+
+---
+
+## [v1.7.3] — 2026-04-13
+
+### Repository Publish & Remote Sync
+
+**Changed**
+- Published project to remote repository:
+  - `https://github.com/Dipukas/dziugas`
+- Pushed `main` branch and enabled upstream tracking (`main -> origin/main`).
+- Included deployment workflow and static site assets in the initial remote history.
+
+**Result**
+- Repository is now live on GitHub and ready for GitHub Actions Pages deployment runs.
+
+---
+
 ## [v1.7.2] — 2026-04-13
 
 ### Accessibility & Safer Pages Artifact
