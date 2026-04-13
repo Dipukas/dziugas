@@ -1,0 +1,177 @@
+---
+description: Source of truth for the Džiugas AI-Guardian project — brand facts, design system, architecture, file map, and editing constraints
+globs: ["**/*"]
+---
+
+# Džiugas AI-Guardian — Source of Truth
+
+> **Version:** 1.4.0 | **Date:** 2026-04-13 | **Status:** Active
+> **Client:** Žemaitijos Pienas AB (Džiugas brand)
+> **Prepared by:** promptanatomy.app
+
+---
+
+## 1. Project Overview
+
+A premium board-presentation-grade one-pager proposing AI-Guardian — computer vision quality control for Džiugas cheese ripening — to the Žemaitijos Pienas board of directors.
+
+**Narrative arc:** Problem → Solution → Proof → CTA
+
+---
+
+## 2. File Map
+
+```
+03_Dziugas/
+├── index.html                   ← MAIN DELIVERABLE (v1.3.0, self-contained)
+├── PA-Premium-Icon.png          ← Prompt Anatomy logo icon (used in nav + footer)
+├── Untitled design (7).png      ← PA brand banner (reference only)
+├── CHANGELOG.md                 ← Full version history (v1.0.0 → v1.3.0)
+├── docs/
+│   ├── manifest.json            ← Machine-readable project manifest
+│   └── STATUS.md                ← Project status dashboard
+└── .cursor/
+    └── rules/
+        └── dziugas-onepager.mdc ← THIS FILE — source of truth
+```
+
+---
+
+## 3. Editing Constraints
+
+### index.html
+- MUST remain a single self-contained file — no external CSS/JS files
+- All CSS in one `<style>` block, all JS in one `<script>` block
+- Only external dependencies: Google Fonts (Plus Jakarta Sans + Inter), Font Awesome 6 CDN
+- Update `<meta name="version">` and `<meta name="date">` on every edit
+- After every change: update `CHANGELOG.md` and `docs/manifest.json` version_history
+
+### Document Management
+- `CHANGELOG.md` uses [Keep a Changelog](https://keepachangelog.com/) format with semver
+- `docs/manifest.json` is the machine-readable registry — keep `current_version` and `version_history` in sync
+- `docs/STATUS.md` is the human dashboard — update file map and version table after structural changes
+
+---
+
+## 4. Design System — Prompt Anatomy × Džiugas
+
+### Color Palette
+| Token | Hex | Usage |
+|---|---|---|
+| `--accent` | `#EAB832` | PA brand gold — CTAs, headings, icons, badges |
+| `--accent-light` | `#F2D06B` | Hover states |
+| `--accent-glow` | `rgba(234,184,50,0.15)` | Ambient glow, shadows |
+| `--bg-obsidian` | `#0A0A0A` | Page background |
+| `--bg-card` | `rgba(255,255,255,0.035)` | Glass panel fill |
+| `--border` | `rgba(255,255,255,0.08)` | Card borders |
+| `--border-accent` | `rgba(234,184,50,0.25)` | Gold-tinted borders |
+| `--text-primary` | `#F8FAFC` | Body text |
+| `--text-secondary` | `#94A3B8` | Supporting text |
+| `--text-muted` | `#64748B` | Tertiary / labels |
+| `--phase-core` | `#EAB832` | Phase 1 (gold) |
+| `--phase-strategic` | `#3B82F6` | Phase 2 (blue) |
+| `--phase-explore` | `#10B981` | Phase 3 (green) |
+| `--zp-red` | `#A61D37` | ŽP corporate red (available, not yet used) |
+
+### Typography
+- **Headings:** Plus Jakarta Sans (300–800)
+- **Body:** Inter (300–700)
+- **System fallback:** system-ui, -apple-system, sans-serif
+
+### Components
+- `.glass` — Glass-morphism card (blur backdrop, white border)
+- `.glass-accent` — Gold-tinted border variant
+- `.gold-text` — Gradient text (white → PA gold)
+- `.badge` — Pill badge with border
+- `.section-label` — Uppercase label with gold dash prefix
+- `.reveal` / `.reveal-delay-{1,2,3}` — Scroll-triggered fade-up animation
+
+### Print Styles
+- `@media print`: white bg, black text, no nav/CTAs, no animations
+- `page-break-inside: avoid` on sections
+- Links show href in parentheses
+
+---
+
+## 5. Page Architecture — 8 Sections
+
+| # | Section ID | Content |
+|---|---|---|
+| 1 | `#top` | **Hero** — headline, subheadline, CTA, trust bar |
+| 2 | `#brand` | **Brand Context** — legend, 4 ingredients, music, business facts |
+| 3 | `#problem` | **The Problem** — 3 pain-point cards + risk timeline |
+| 4 | `#solution` | **AI-Guardian** — 3-step pipeline, 3 benefits, principle |
+| 5 | `#strategy` | **Strategic Priorities** — Core/Strategic/Explore + heatmap |
+| 6 | `#pilot` | **Industry Proof & Pilot** — Eberle/Baldauf case + 3-phase roadmap |
+| 7 | `#principle` | **Džiugas Principle** — closing philosophy + CTA |
+| 8 | footer | **Footer** — PA branding, legal, links |
+
+---
+
+## 6. Verified Brand Facts — Džiugas / Žemaitijos Pienas
+
+Sources: [zpienas.lt](https://www.zpienas.lt/dziugas/), [dziugashouse.lt](https://dziugashouse.lt/en/about-us/), [Dairy Industries Intl.](https://www.dairyindustries.com/news/32471/), [Nasdaq Baltic H1 2025 Report](https://attachment.news.eu.nasdaq.com/)
+
+### Identity
+- **Brand:** Džiugas® (hard cheese)
+- **Parent:** Žemaitijos Pienas AB, Nasdaq Vilnius listed, 1,300+ employees
+- **Founded:** 1924, Telšiai, Samogitia, Lithuania
+- **Name origin:** Lithuanian folklore — warrior giant Džiugas who protected Samogitia, married Austelė, pressed cheese on wedding night per Samogitian tradition
+- **Godparents:** President Valdas Adamkus and Alma Adamkienė (2010)
+
+### Product
+- **Ingredients (only 4):** Summer milk from free-grazing Samogitian cows, starter culture, non-animal rennet, salt
+- **Properties:** Lactose-free, vegetarian-friendly, no artificial colorings/preservatives, rich in calcium, phosphorus, protein
+- **Aging:** 12–120 months, wheels turned every 3 days, aged to M. K. Čiurlionis and Oginskis symphonies
+- **Product tiers (8):**
+  - Mild (12mo), Piquant (18mo), Delicate (24mo), Gourmet (36mo)
+  - Luxurious (48mo), Exclusive (60mo), Special Aged (100mo), Extra Aged (120mo)
+
+### Recognition
+- **Awards:** 90+ international (DLG, Crystal Taste, Superior Taste Award, Anuga, Premio Roma)
+- **Protection:** EU PGI since 2019, Japan GI proposed August 2025
+- **Exports:** 40+ countries, "Džiugas Days" in 12+ markets (2025)
+- **Post-2022:** Russia/Belarus/China markets closed; sales redirected to EU, UK, Japan, Uzbekistan, Croatia
+
+### Production Stages (from dziugashouse.lt)
+1. Shaping in round moulds → cheese press
+2. "Gentle hands" — placed in rings, warm environment, hand-turned
+3. Brine bath
+4. Aging cellars — turned every 3 days for weeks
+5. Long ripening — fermentation, biochemical changes, calcium crystal formation
+
+---
+
+## 7. Industry Reference — AI in Cheese QC
+
+### Eberle × Gebr. Baldauf Case Study
+- **Source:** [MVTec](https://www.mvtec.com/), [RoboticsTomorrow](https://www.roboticstomorrow.com/), [Drives&Controls](https://drivesncontrols.com/)
+- **What:** Mobile robot with 4K cameras + MVTec HALCON deep learning
+- **Challenge:** Natural variability — every wheel looks different
+- **Solution:** Deep learning trained on cheese surface data to distinguish true defects from natural rind variation
+- **Results:** 100% inspection rate, 24/7 autonomous operation, reduced waste, full digital traceability
+- **Relevance:** Exact same technology applicable to Džiugas ripening process
+
+---
+
+## 8. Tone & Language Rules
+
+- Board-presentation grade: **formal, respectful, consultative**
+- Heritage-first: AI serves tradition, never replaces it
+- NEVER use: "profit engine", "kill", "disrupt", "crush", "dominate"
+- NEVER fabricate quotes attributed to Džiugas/ŽP leadership
+- All statistics must be sourced or clearly marked as projections
+- Strategic terminology: **Core / Strategic / Explore** (never MARRY/KISS/KILL)
+- The Džiugas Principle statement is labeled "Design philosophy" — not a client quote
+
+---
+
+## 9. Version History
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.4.0 | 2026-04-13 | Source of truth consolidated, document management system |
+| 1.3.0 | 2026-04-13 | PA brand alignment — gold #EAB832, logo integration, ŽP color analysis, 8-tier timeline |
+| 1.2.0 | 2026-04-13 | Responsive polish — theme-color meta, mobile timeline markers |
+| 1.1.0 | 2026-04-13 | Full content — all 8 sections, animations, print styles |
+| 1.0.0 | 2026-04-13 | Project init — skeleton, CSS design system, cursor rule |

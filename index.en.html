@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DŽIUGAS AI-Guardian — Board Presentation</title>
+    <meta name="description" content="AI-Guardian: Computer vision quality control for Džiugas premium cheese ripening. Strategic proposal for the board of Žemaitijos Pienas AB.">
+    <meta name="author" content="promptanatomy.app">
+    <meta name="version" content="1.7.2">
+    <meta name="date" content="2026-04-13">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ── Design Tokens — Prompt Anatomy × Džiugas ── */
+        :root {
+            --accent: #EAB832;
+            --accent-light: #F2D06B;
+            --accent-glow: rgba(234, 184, 50, 0.15);
+            --accent-glow-strong: rgba(234, 184, 50, 0.25);
+            --bg-obsidian: #0A0A0A;
+            --bg-card: rgba(255, 255, 255, 0.035);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(234, 184, 50, 0.25);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --phase-core: #EAB832;
+            --phase-strategic: #3B82F6;
+            --phase-explore: #10B981;
+            --zp-red: #A61D37;
+        }
+
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-primary);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            line-height: 1.15;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+        img { max-width: 100%; display: block; }
+
+        /* ── Ambient Background ── */
+        .ambient-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 60% 50% at 10% 10%, rgba(234, 184, 50, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 90% 85%, rgba(234, 184, 50, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── Layout ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .section { padding: 100px 0; }
+
+        @media (max-width: 768px) {
+            .section { padding: 64px 0; }
+        }
+
+        /* ── Glass Panel ── */
+        .glass {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        .glass-accent {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-accent);
+            border-radius: 20px;
+        }
+
+        /* ── Typography Utilities ── */
+        .gold-text {
+            background: linear-gradient(135deg, #FFF 20%, #EAB832 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: 1px solid currentColor;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* ── Navigation ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-title span { color: var(--text-muted); font-weight: 400; }
+
+        .nav-attr {
+            font-size: 11px;
+            font-family: 'Inter', monospace;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .lang-switch a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .lang-switch a:hover { color: var(--text-primary); }
+        .lang-switch a.is-active { color: var(--accent); }
+
+        /* ── Hero ── */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            color: var(--accent);
+            background: rgba(234, 184, 50, 0.08);
+            border-color: rgba(234, 184, 50, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-media {
+            position: relative;
+            width: min(100%, 960px);
+            margin: 36px auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            background: rgba(255, 255, 255, 0.02);
+            aspect-ratio: 16 / 9;
+        }
+
+        .hero-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.05) 0%, rgba(10, 10, 10, 0.28) 100%);
+            pointer-events: none;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--accent);
+            color: #0A0A0A;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 32px rgba(234, 184, 50, 0.2);
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(234, 184, 50, 0.3);
+        }
+
+        .trust-bar {
+            margin-top: 64px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 32px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .trust-bar span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-bar i { color: var(--accent); font-size: 10px; }
+
+        /* ── Divider ── */
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 0 auto;
+        }
+
+        /* ── Brand Context ── */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .brand-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        .brand-narrative h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .brand-narrative p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .brand-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .brand-fact {
+            padding: 24px;
+        }
+
+        .brand-fact-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .brand-fact-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* ── Problem Section ── */
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .problem-cards { grid-template-columns: 1fr; }
+        }
+
+        .problem-card {
+            padding: 36px 28px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(239, 68, 68, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(239, 68, 68, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #EF4444;
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+
+        .problem-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .problem-stat {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #EF4444;
+        }
+
+        /* ── Vulnerability Timeline ── */
+        .timeline-visual {
+            margin-top: 48px;
+            padding: 32px;
+        }
+
+        .timeline-bar-container {
+            position: relative;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+
+        .timeline-bar-fill {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                rgba(16, 185, 129, 0.3) 0%,
+                rgba(234, 184, 50, 0.3) 30%,
+                rgba(239, 68, 68, 0.3) 70%,
+                rgba(239, 68, 68, 0.5) 100%);
+            border-radius: 12px;
+        }
+
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-markers {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-markers { font-size: 8px; padding: 0 6px; }
+            .timeline-markers span:nth-child(2),
+            .timeline-markers span:nth-child(4),
+            .timeline-markers span:nth-child(6),
+            .timeline-markers span:nth-child(7) { display: none; }
+        }
+
+        /* ── Solution Section ── */
+        .solution-pipeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        @media (max-width: 768px) {
+            .solution-pipeline { grid-template-columns: 1fr; }
+        }
+
+        .pipeline-step {
+            padding: 36px 28px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pipeline-step:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(234, 184, 50, 0.1);
+            color: var(--accent);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .pipeline-step h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pipeline-step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .solution-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .solution-benefits { grid-template-columns: 1fr; }
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 24px;
+        }
+
+        .benefit-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: rgba(234, 184, 50, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .benefit-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .benefit-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .solution-principle {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px;
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            background: rgba(234, 184, 50, 0.03);
+        }
+
+        .solution-principle p {
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .solution-principle strong { color: var(--accent); font-style: normal; }
+
+        /* ── Strategy Section ── */
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .strategy-cards { grid-template-columns: 1fr; }
+        }
+
+        .strategy-card {
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .strategy-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .strategy-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .strategy-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .strategy-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .strategy-focus {
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+        }
+
+        .strategy-focus-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .strategy-focus-value {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* ── Heatmap ── */
+        .heatmap { margin-top: 8px; }
+
+        .heatmap-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .heatmap-label {
+            min-width: 200px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .heatmap-track {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .heatmap-fill {
+            height: 100%;
+            border-radius: 100px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .heatmap-value {
+            min-width: 50px;
+            text-align: right;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .heatmap-label { min-width: 120px; font-size: 12px; }
+        }
+
+        /* ── Proof / ROI Section ── */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .proof-grid { grid-template-columns: 1fr; }
+        }
+
+        .case-study {
+            padding: 36px;
+        }
+
+        .case-study h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .case-study p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .case-metric {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .case-metric-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .case-metric-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ── Pilot Timeline ── */
+        .pilot-timeline {
+            padding: 36px;
+        }
+
+        .pilot-timeline h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .pilot-phases {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .pilot-phases::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--phase-strategic), var(--phase-explore));
+            border-radius: 2px;
+        }
+
+        .pilot-phase {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .pilot-phase:last-child { margin-bottom: 0; }
+
+        .pilot-phase::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: var(--bg-obsidian);
+        }
+
+        .pilot-phase:nth-child(2)::before { border-color: var(--phase-strategic); }
+        .pilot-phase:nth-child(3)::before { border-color: var(--phase-explore); }
+
+        .pilot-phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .pilot-phase-name {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .pilot-phase-duration {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 100px;
+            background: rgba(234, 184, 50, 0.1);
+            color: var(--accent);
+        }
+
+        .pilot-phase:nth-child(2) .pilot-phase-duration {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--phase-strategic);
+        }
+
+        .pilot-phase:nth-child(3) .pilot-phase-duration {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--phase-explore);
+        }
+
+        .pilot-phase p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .pilot-kpis {
+            margin-top: 32px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .pilot-kpis h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .pilot-kpis ul {
+            list-style: none;
+        }
+
+        .pilot-kpis li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pilot-kpis li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ── Closing / Principle ── */
+        .closing {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .closing-principle {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        .closing-principle h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .closing-principle blockquote {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            position: relative;
+            padding: 0 24px;
+        }
+
+        .closing-principle blockquote::before {
+            content: '"';
+            position: absolute;
+            left: -8px;
+            top: -16px;
+            font-size: 64px;
+            font-family: Georgia, serif;
+            color: rgba(234, 184, 50, 0.2);
+            line-height: 1;
+        }
+
+        .closing-attr {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        .closing-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--accent);
+            color: #0A0A0A;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 32px rgba(234, 184, 50, 0.25);
+        }
+
+        .closing-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(234, 184, 50, 0.35);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-brand span {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .footer-legal {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        /* ── Scroll Reveal Animation ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            * { color: #000 !important; background: #fff !important; box-shadow: none !important; text-shadow: none !important; }
+            body { font-size: 11pt; line-height: 1.4; }
+            .nav, .ambient-mesh, .hero-cta, .hero-media, .closing-cta, .footer-links { display: none !important; }
+            .glass, .glass-accent { border: 1px solid #ccc !important; backdrop-filter: none !important; }
+            .gold-text { -webkit-text-fill-color: #000 !important; background: none !important; }
+            .section { padding: 32px 0 !important; page-break-inside: avoid; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .container { max-width: 100%; padding: 0 16px; }
+            .hero { padding-top: 32px !important; }
+            a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
+            .heatmap-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+
+    <div class="ambient-mesh" aria-hidden="true"></div>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <div class="nav-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
+                <div class="nav-title">AI-Guardian <span>by Prompt Anatomy</span></div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-attr"><span style="color:var(--accent);">&#9889;</span> Prepared by <strong style="color:var(--text-secondary);">promptanatomy.app</strong></div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <a href="./index.lt.html">LT</a>
+                    <span>/</span>
+                    <a href="./index.en.html" class="is-active">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ═══ HERO ═══ -->
+        <section class="hero container" id="top">
+            <div class="reveal">
+                <span class="badge hero-badge">
+                    <i class="fa-solid fa-chess-rook"></i> Board Presentation · 2026
+                </span>
+            </div>
+            <h1 class="reveal reveal-delay-1">
+                Where Century-Old Craft<br>Meets <span class="gold-text">Computer Vision.</span>
+            </h1>
+            <p class="hero-sub reveal reveal-delay-2">
+                Džiugas wheels age 12 to 120 months — years of craft vulnerable to early-stage defects that are hard to spot. AI-Guardian catches what the human eye misses, without replacing the cheesemaker's hand.
+            </p>
+            <div class="reveal reveal-delay-3">
+                <a href="#pilot" class="hero-cta">
+                    View the 3-phase pilot plan <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+            <div class="hero-media reveal reveal-delay-3">
+                <img
+                    src="main_photo-1024.jpg"
+                    srcset="main_photo-640.jpg 640w, main_photo-1024.jpg 1024w, main_photo-1536.jpg 1536w"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 960px"
+                    alt="Džiugas ripening cellar with AI-Guardian inspection workflow"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async">
+            </div>
+            <div class="trust-bar reveal reveal-delay-3">
+                <span><i class="fa-solid fa-landmark"></i> Est. 1924 · Telšiai</span>
+                <span><i class="fa-solid fa-shield-halved"></i> EU PGI protected origin</span>
+                <span><i class="fa-solid fa-trophy"></i> 90+ International Awards</span>
+                <span><i class="fa-solid fa-globe"></i> 40+ Export Markets</span>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ BRAND CONTEXT ═══ -->
+        <section class="section container" id="brand">
+            <div class="brand-grid">
+                <div class="brand-narrative reveal">
+                    <div class="section-label">Why Džiugas Matters</div>
+                    <h2>A Legend <span class="gold-text">Turned Into Cheese.</span></h2>
+                    <p>
+                        Named after the mighty warrior giant of Lithuanian folklore who protected Samogitia, Džiugas has been produced in Telšiai since 1924. Made from just four ingredients — summer milk from free-grazing cows, starter culture, non-animal rennet, and salt — its color and flavor are gifted entirely by nature.
+                    </p>
+                    <p>
+                        Each wheel is aged to the symphonies of M. K. Čiurlionis and Oginskis, turned by hand every three days, for anywhere from 12 to 120 months. EU PGI-protected since 2019, with Japan GI protection proposed in 2025, the brand is now presented at "Džiugas Days" events across 12+ international markets.
+                    </p>
+                </div>
+                <div class="brand-facts reveal reveal-delay-1">
+                    <div class="brand-fact glass">
+                        <div class="brand-fact-value">1924</div>
+                        <div class="brand-fact-label">Founded in Telšiai</div>
+                    </div>
+                    <div class="brand-fact glass">
+                        <div class="brand-fact-value">90+</div>
+                        <div class="brand-fact-label">International Awards</div>
+                    </div>
+                    <div class="brand-fact glass">
+                        <div class="brand-fact-value">120 mo</div>
+                        <div class="brand-fact-label">Max. Aging Period</div>
+                    </div>
+                    <div class="brand-fact glass">
+                        <div class="brand-fact-value">1,300+</div>
+                        <div class="brand-fact-label">Employees (ŽP AB)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ THE PROBLEM ═══ -->
+        <section class="section container" id="problem">
+            <div class="text-center reveal" style="text-align:center; max-width:680px; margin:0 auto;">
+                <div class="section-label" style="justify-content:center;">The Challenge</div>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
+                    Why <span class="gold-text">Now?</span>
+                </h2>
+                <p style="color:var(--text-secondary); font-size:15px;">
+                    Three pressure points make AI quality control a strategic necessity.
+                </p>
+            </div>
+            <div class="problem-cards">
+                <div class="problem-card glass reveal">
+                    <div class="problem-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h3>Ripening Vulnerability</h3>
+                    <p>Thousands of wheels age simultaneously, each turned every three days across a 12-to-120-month cycle. A minor environmental shift during any inspection gap can compromise an entire batch.</p>
+                    <div class="problem-stat">Up to 10 years of value built into each wheel</div>
+                </div>
+                <div class="problem-card glass reveal reveal-delay-1">
+                    <div class="problem-icon"><i class="fa-solid fa-users-slash"></i></div>
+                    <h3>Labor Pressure</h3>
+                    <p>European dairy faces chronic labor shortages. Manual inspection is subjective — different inspectors grade differently, leading to inconsistent quality classification across shifts and seasons.</p>
+                    <div class="problem-stat">Growing workforce gap across EU dairy</div>
+                </div>
+                <div class="problem-card glass reveal reveal-delay-2">
+                    <div class="problem-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3>Batch Loss Risk</h3>
+                    <p>A single undetected mold event can spread to adjacent wheels, destroying months or years of aging investment. Losses are not linear — they cascade through shared cellar environments.</p>
+                    <div class="problem-stat">Cascade failure across shared cellars</div>
+                </div>
+            </div>
+
+            <div class="timeline-visual glass reveal" style="margin-top:48px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span style="font-size:13px; font-weight:700;">Aging Risk Window</span>
+                    <span style="font-size:11px; color:var(--text-muted);">Vulnerability increases with time and investment</span>
+                </div>
+                <div class="timeline-bar-container">
+                    <div class="timeline-bar-fill"></div>
+                    <div class="timeline-markers">
+                        <span>Mild 12mo</span>
+                        <span>Piquant 18mo</span>
+                        <span>Delicate 24mo</span>
+                        <span>Gourmet 36mo</span>
+                        <span>Luxurious 48mo</span>
+                        <span>Exclusive 60mo</span>
+                        <span>Special 100mo</span>
+                        <span>Extra 120mo</span>
+                    </div>
+                </div>
+                <div class="timeline-labels">
+                    <span style="color:#10B981;">Lower risk</span>
+                    <span style="color:#EF4444;">Maximum risk exposure</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ THE SOLUTION — AI-GUARDIAN ═══ -->
+        <section class="section container" id="solution">
+            <div style="text-align:center; max-width:680px; margin:0 auto;" class="reveal">
+                <div class="section-label" style="justify-content:center;">The Solution</div>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
+                    Project: <span class="gold-text">AI-Guardian</span>
+                </h2>
+                <p style="color:var(--text-secondary); font-size:15px;">
+                    A 3-step AI inspection flow integrated into the existing ripening workflow.
+                </p>
+            </div>
+
+            <div class="solution-pipeline">
+                <div class="pipeline-step glass reveal">
+                    <div class="step-number">1</div>
+                    <h3>Capture</h3>
+                    <p>During routine three-day turning, a 4K industrial camera captures high-resolution surface imagery of each wheel — no disruption to the existing workflow.</p>
+                </div>
+                <div class="pipeline-step glass reveal reveal-delay-1">
+                    <div class="step-number">2</div>
+                    <h3>Analyze</h3>
+                    <p>A deep learning model, trained on cheese surface data, detects cracks, mold spots, discoloration, and deformation — distinguishing true defects from natural rind variations.</p>
+                </div>
+                <div class="pipeline-step glass reveal reveal-delay-2">
+                    <div class="step-number">3</div>
+                    <h3>Act</h3>
+                    <p>Real-time alerts flag anomalies for immediate intervention. Every inspection result is stored digitally, creating full per-wheel traceability from press to export.</p>
+                </div>
+            </div>
+
+            <div class="solution-benefits">
+                <div class="benefit-item glass reveal">
+                    <div class="benefit-icon"><i class="fa-solid fa-eye"></i></div>
+                    <div>
+                        <h4>100% wheel inspection coverage</h4>
+                        <p>Consistent grading criteria applied to every wheel, every cycle — eliminating human subjectivity.</p>
+                    </div>
+                </div>
+                <div class="benefit-item glass reveal reveal-delay-1">
+                    <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h4>Early Anomaly Detection</h4>
+                        <p>Catch mold or surface defects before cascade failure — protect adjacent wheels and entire cellar batches.</p>
+                    </div>
+                </div>
+                <div class="benefit-item glass reveal reveal-delay-2">
+                    <div class="benefit-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                    <div>
+                        <h4>Digital Traceability</h4>
+                        <p>Full per-wheel history from production to export — supporting PGI compliance and premium market requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-principle reveal">
+                <p><strong>Design Principle:</strong> AI-Guardian augments the cheesemaker's craft — it never replaces it.</p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ STRATEGIC PRIORITIES ═══ -->
+        <section class="section container" id="strategy">
+            <div style="text-align:center; max-width:680px; margin:0 auto; margin-bottom:48px;" class="reveal">
+                <div class="section-label" style="justify-content:center;">Strategic Roadmap</div>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
+                    Phased AI <span class="gold-text">Priorities</span>
+                </h2>
+                <p style="color:var(--text-secondary); font-size:15px;">
+                    Three tiers of AI initiative, sequenced by strategic impact and implementation readiness.
+                </p>
+            </div>
+
+            <div class="strategy-cards">
+                <!-- CORE -->
+                <div class="strategy-card glass reveal" style="border-top: 3px solid var(--phase-core);">
+                    <div class="strategy-card-header">
+                        <div class="strategy-icon" style="background:rgba(234,184,50,0.1); color:var(--phase-core);">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="badge" style="color:var(--phase-core); border-color:rgba(234,184,50,0.3);">Core · Phase 1</span>
+                    </div>
+                    <h3>AI-Guardian</h3>
+                    <p>Computer vision quality control for the ripening process. Immediate, high-impact protection of the brand's most valuable asset.</p>
+                    <div class="strategy-focus">
+                        <div class="strategy-focus-label" style="color:var(--phase-core);">Objective</div>
+                        <div class="strategy-focus-value">"Protect every wheel from cellar to export."</div>
+                    </div>
+                </div>
+                <!-- STRATEGIC -->
+                <div class="strategy-card glass reveal reveal-delay-1" style="border-top: 3px solid var(--phase-strategic);">
+                    <div class="strategy-card-header">
+                        <div class="strategy-icon" style="background:rgba(59,130,246,0.1); color:var(--phase-strategic);">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <span class="badge" style="color:var(--phase-strategic); border-color:rgba(59,130,246,0.3);">Strategic · Phase 2</span>
+                    </div>
+                    <h3>Supply Chain Optimizer</h3>
+                    <p>Demand forecasting and logistics optimization for 40+ export markets — especially critical given post-2022 market redirection from Russia, Belarus, and China.</p>
+                    <div class="strategy-focus">
+                        <div class="strategy-focus-label" style="color:var(--phase-strategic);">Objective</div>
+                        <div class="strategy-focus-value">"Global supply chain resilience and efficiency."</div>
+                    </div>
+                </div>
+                <!-- EXPLORE -->
+                <div class="strategy-card glass reveal reveal-delay-2" style="border-top: 3px solid var(--phase-explore);">
+                    <div class="strategy-card-header">
+                        <div class="strategy-icon" style="background:rgba(16,185,129,0.1); color:var(--phase-explore);">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span class="badge" style="color:var(--phase-explore); border-color:rgba(16,185,129,0.3);">Explore · Phase 3</span>
+                    </div>
+                    <h3>Consumer Intelligence</h3>
+                    <p>Sentiment analysis and market trend detection to refine branding, accelerate packaging innovation, and inform positioning across new markets.</p>
+                    <div class="strategy-focus">
+                        <div class="strategy-focus-label" style="color:var(--phase-explore);">Objective</div>
+                        <div class="strategy-focus-value">"Data-driven speed in marketing decisions."</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass reveal" style="padding:36px;">
+                <div style="font-size:13px; font-weight:700; margin-bottom:24px;">Investment Priority Heatmap</div>
+                <div class="heatmap">
+                    <div class="heatmap-row">
+                        <div class="heatmap-label" style="color:var(--phase-core);">
+                            <i class="fa-solid fa-shield-halved" style="margin-right:8px;"></i>AI-Guardian
+                        </div>
+                        <div class="heatmap-track">
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-core);" data-width="95%"></div>
+                        </div>
+                        <div class="heatmap-value" style="color:var(--phase-core);">95%</div>
+                    </div>
+                    <div class="heatmap-row">
+                        <div class="heatmap-label" style="color:var(--phase-strategic);">
+                            <i class="fa-solid fa-truck-fast" style="margin-right:8px;"></i>Supply Chain
+                        </div>
+                        <div class="heatmap-track">
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-strategic);" data-width="70%"></div>
+                        </div>
+                        <div class="heatmap-value" style="color:var(--phase-strategic);">70%</div>
+                    </div>
+                    <div class="heatmap-row">
+                        <div class="heatmap-label" style="color:var(--phase-explore);">
+                            <i class="fa-solid fa-chart-line" style="margin-right:8px;"></i>Consumer Intel
+                        </div>
+                        <div class="heatmap-track">
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-explore);" data-width="45%"></div>
+                        </div>
+                        <div class="heatmap-value" style="color:var(--phase-explore);">45%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ INDUSTRY PROOF & ROI ═══ -->
+        <section class="section container" id="pilot">
+            <div style="text-align:center; max-width:680px; margin:0 auto; margin-bottom:48px;" class="reveal">
+                <div class="section-label" style="justify-content:center;">Validation & Roadmap</div>
+                <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
+                    Industry <span class="gold-text">Proof</span> & Pilot Plan
+                </h2>
+                <p style="color:var(--text-secondary); font-size:15px;">
+                    The same technology model is already deployed in European cheese ripening — and the results are documented.
+                </p>
+            </div>
+
+            <div class="proof-grid">
+                <div class="case-study glass-accent reveal">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+                        <i class="fa-solid fa-microscope" style="color:var(--accent);"></i>
+                        <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent);">Industry Reference</span>
+                    </div>
+                    <h3>Eberle × Gebr. Baldauf Case Study</h3>
+                    <p>
+                        Gebr. Baldauf, a traditional Allgäu dairy (est. 1862), commissioned Eberle Automatische Systeme to automate cheese ripening inspection. The system uses a mobile robot with 4K cameras and MVTec HALCON deep learning to detect mold, cracks, and discoloration on every wheel.
+                    </p>
+                    <p>
+                        The deep learning model was trained to distinguish true defects from natural rind variation — the same challenge Džiugas faces with its long-aged wheels.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value">100%</div>
+                            <div class="case-metric-label">Inspection Rate</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value">24/7</div>
+                            <div class="case-metric-label">Autonomous Operation</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value">Full</div>
+                            <div class="case-metric-label">Digital Traceability</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value">↓</div>
+                            <div class="case-metric-label">Waste Reduction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pilot-timeline glass-accent reveal reveal-delay-1">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+                        <i class="fa-solid fa-route" style="color:var(--accent);"></i>
+                        <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent);">Proposed Roadmap</span>
+                    </div>
+                    <h3>Džiugas Pilot Plan</h3>
+                    <div class="pilot-phases">
+                        <div class="pilot-phase">
+                            <div class="pilot-phase-header">
+                                <span class="pilot-phase-name">Phase 1 — Proof of Concept</span>
+                                <span class="pilot-phase-duration">3 months</span>
+                            </div>
+                            <p>Single ripening cellar. Camera installation, initial model training with Džiugas wheel imagery, baseline defect detection validation.</p>
+                        </div>
+                        <div class="pilot-phase">
+                            <div class="pilot-phase-header">
+                                <span class="pilot-phase-name">Phase 2 — Scale</span>
+                                <span class="pilot-phase-duration">6 months</span>
+                            </div>
+                            <p>Expand to multiple cellars. Refine model across all aging stages (Mild through Extra Aged). Integrate alerting with existing workflows.</p>
+                        </div>
+                        <div class="pilot-phase">
+                            <div class="pilot-phase-header">
+                                <span class="pilot-phase-name">Phase 3 — Full Integration</span>
+                                <span class="pilot-phase-duration">12 months</span>
+                            </div>
+                            <p>Facility-wide deployment. Per-wheel digital traceability. Dashboard integration for production management. Export compliance documentation.</p>
+                        </div>
+                    </div>
+                    <div class="pilot-kpis">
+                        <h4>Success Metrics</h4>
+                        <ul>
+                            <li>Defect detection rate vs. manual baseline</li>
+                            <li>False positive rate below operational threshold</li>
+                            <li>Labor hours saved per inspection cycle</li>
+                            <li>Batch waste reduction percentage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ═══ THE DŽIUGAS PRINCIPLE ═══ -->
+        <section class="closing container" id="principle">
+            <div class="closing-principle glass-accent reveal">
+                <div class="section-label" style="justify-content:center;">The Džiugas Principle</div>
+                <h2>Technology Serves <span class="gold-text">Tradition.</span></h2>
+                <blockquote>
+                    Technology serves tradition. We automate inspection to scale excellence — but the summer milk, the classical music, and the cheesemaker's care remain untouched.
+                </blockquote>
+                <div class="closing-attr">Design philosophy — AI-Guardian Project</div>
+                <a href="mailto:hello@promptanatomy.app" class="closing-cta">
+                    Book a 30-minute pilot discussion <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><img src="PA-Premium-Icon.png" alt="Prompt Anatomy"></div>
+                <span>AI-Guardian by Prompt Anatomy</span>
+            </div>
+            <div class="footer-legal">&copy; 2026 promptanatomy.app · Built on Prompt Anatomy AI Operating System · For internal strategic use</div>
+            <div class="footer-links">
+                <a href="https://www.promptanatomy.app/" aria-label="Visit Prompt Anatomy website"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.linkedin.com/company/prompt-anatomy/" aria-label="Prompt Anatomy LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ SCROLL REVEAL + HEATMAP ANIMATION ═══ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var reveals = document.querySelectorAll('.reveal');
+            var heatmapFills = document.querySelectorAll('.heatmap-fill');
+            var animated = false;
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            reveals.forEach(function (el) { observer.observe(el); });
+
+            var heatmapObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+                        heatmapFills.forEach(function (bar) {
+                            var target = bar.getAttribute('data-width');
+                            if (target) {
+                                setTimeout(function () { bar.style.width = target; }, 200);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            var heatmapSection = document.querySelector('.heatmap');
+            if (heatmapSection) heatmapObserver.observe(heatmapSection);
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    var target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

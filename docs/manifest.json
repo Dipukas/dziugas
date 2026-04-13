@@ -1,0 +1,141 @@
+{
+  "project": "Džiugas AI-Guardian",
+  "client": "Žemaitijos Pienas AB",
+  "brand": "Džiugas",
+  "prepared_by": "promptanatomy.app",
+  "repository": "03_Dziugas",
+  "current_version": "1.7.2",
+  "last_updated": "2026-04-13",
+  "status": "active",
+  "source_of_truth": ".cursor/rules/dziugas-onepager.mdc",
+  "documents": [
+    {
+      "id": "onepager-lt-default",
+      "title": "AI-Guardian Board Presentation One-Pager (LT)",
+      "file": "../index.html",
+      "type": "presentation",
+      "format": "html",
+      "version": "1.7.2",
+      "audience": "Board of Directors — Žemaitijos Pienas AB",
+      "confidentiality": "confidential",
+      "description": "Lithuanian-first premium one-page strategic proposal for AI-Guardian computer vision quality control in Džiugas ripening."
+    },
+    {
+      "id": "onepager-en",
+      "title": "AI-Guardian Board Presentation One-Pager (EN)",
+      "file": "../index.en.html",
+      "type": "presentation",
+      "format": "html",
+      "version": "1.7.2",
+      "audience": "Board of Directors — Žemaitijos Pienas AB",
+      "confidentiality": "confidential",
+      "description": "English version of the board one-pager with the same structure and visual system."
+    }
+  ],
+  "assets": [
+    {
+      "file": "../PA-Premium-Icon.png",
+      "type": "logo",
+      "description": "Primary Prompt Anatomy lightning logo used in navigation and footer",
+      "usage": ["navigation", "footer"]
+    },
+    {
+      "file": "../main_photo-1024.jpg",
+      "type": "hero",
+      "description": "Primary responsive hero image default",
+      "usage": ["hero"]
+    },
+    {
+      "file": "../assets/logo-pa.svg",
+      "type": "logo-fallback",
+      "description": "Optional fallback local logo asset",
+      "usage": ["fallback"]
+    },
+    {
+      "file": "../assets/hero-ripening.svg",
+      "type": "hero-fallback",
+      "description": "Optional fallback local hero visual",
+      "usage": ["fallback"]
+    }
+  ],
+  "design_system": {
+    "primary_accent": "#EAB832",
+    "background": "#0A0A0A",
+    "secondary_accent": "#A61D37",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8",
+    "heading_font": "Plus Jakarta Sans",
+    "body_font": "Inter",
+    "phase_colors": {
+      "core": "#EAB832",
+      "strategic": "#3B82F6",
+      "explore": "#10B981"
+    }
+  },
+  "brand_facts": {
+    "founded": 1924,
+    "location": "Telšiai, Samogitia, Lithuania",
+    "parent_company": "Žemaitijos Pienas AB",
+    "stock_exchange": "Nasdaq Vilnius",
+    "employees": "1,300+",
+    "awards": "90+ international",
+    "aging_range": "12–120 months",
+    "pgi_status": "EU Protected Geographical Indication (2019)",
+    "japan_gi": "Proposed 2025",
+    "ingredients": ["summer milk (free-grazing cows)", "starter culture", "non-animal rennet", "salt"],
+    "product_tiers": [
+      {"name": "Mild", "months": 12},
+      {"name": "Piquant", "months": 18},
+      {"name": "Delicate", "months": 24},
+      {"name": "Gourmet", "months": 36},
+      {"name": "Luxurious", "months": 48},
+      {"name": "Exclusive", "months": 60},
+      {"name": "Special Aged", "months": 100},
+      {"name": "Extra Aged", "months": 120}
+    ],
+    "export_markets": "40+ countries",
+    "classical_music": ["M. K. Čiurlionis", "Oginskis"]
+  },
+  "version_history": [
+    {
+      "version": "1.7.2",
+      "date": "2026-04-13",
+      "summary": "Accessibility update (focus-visible, noscript reveal fallback, reduced-motion support) and safer Pages artifact scope"
+    },
+    {
+      "version": "1.7.1",
+      "date": "2026-04-13",
+      "summary": "Deploy readiness update with local SVG assets, metadata synchronization, and GitHub Pages preparation"
+    },
+    {
+      "version": "1.7.0",
+      "date": "2026-04-13",
+      "summary": "Premium SaaS visual polish and navigation/CTA consistency pass"
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-04-13",
+      "summary": "Source of truth consolidated in cursor rule, document management system created (CHANGELOG + manifest + STATUS)"
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-04-13",
+      "summary": "Brand alignment — PA gold (#EAB832), logo integration, ŽP color analysis, timeline update"
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-04-13",
+      "summary": "Responsive & print polish — theme-color meta, mobile timeline fixes"
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-04-13",
+      "summary": "Full content build — all 7 sections, animations, print styles"
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-04-13",
+      "summary": "Project initialization — cursor rule, HTML skeleton, CSS design system"
+    }
+  ]
+}

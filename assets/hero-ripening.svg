@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Dziugas ripening process hero placeholder</title>
+  <desc id="desc">Stylized ripening cellar inspired scene used as deploy-safe fallback hero visual.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2d06b" />
+      <stop offset="100%" stop-color="#eab832" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <g opacity="0.18">
+    <circle cx="260" cy="210" r="190" fill="#eab832" />
+    <circle cx="1380" cy="720" r="220" fill="#eab832" />
+  </g>
+  <g stroke="#1f2937" stroke-width="8">
+    <path d="M120 170h1360" />
+    <path d="M120 320h1360" />
+    <path d="M120 470h1360" />
+    <path d="M120 620h1360" />
+    <path d="M120 770h1360" />
+  </g>
+  <g fill="#0f172a" stroke="#334155" stroke-width="4">
+    <circle cx="300" cy="250" r="80" />
+    <circle cx="520" cy="250" r="80" />
+    <circle cx="740" cy="250" r="80" />
+    <circle cx="960" cy="250" r="80" />
+    <circle cx="1180" cy="250" r="80" />
+    <circle cx="410" cy="400" r="80" />
+    <circle cx="630" cy="400" r="80" />
+    <circle cx="850" cy="400" r="80" />
+    <circle cx="1070" cy="400" r="80" />
+    <circle cx="300" cy="550" r="80" />
+    <circle cx="520" cy="550" r="80" />
+    <circle cx="740" cy="550" r="80" />
+    <circle cx="960" cy="550" r="80" />
+    <circle cx="1180" cy="550" r="80" />
+  </g>
+  <g>
+    <rect x="1140" y="520" width="320" height="220" rx="18" fill="#020617" stroke="#eab832" stroke-width="3" />
+    <text x="1170" y="570" fill="#f8fafc" font-size="34" font-family="Inter, Arial, sans-serif">AI-GUARDIAN</text>
+    <text x="1170" y="620" fill="#94a3b8" font-size="24" font-family="Inter, Arial, sans-serif">visual-inspection active</text>
+    <rect x="1170" y="650" width="240" height="14" rx="7" fill="#334155" />
+    <rect x="1170" y="650" width="170" height="14" rx="7" fill="url(#accent)" />
+  </g>
+</svg>
