@@ -5,7 +5,7 @@
 | **Client** | Žemaitijos Pienas AB (Džiugas brand) |
 | **Project** | AI-Guardian Board Presentation |
 | **Prepared by** | promptanatomy.app |
-| **Version** | v1.7.2 |
+| **Version** | v1.7.8 |
 | **Last Updated** | 2026-04-13 |
 | **Status** | Active — Deploy-ready |
 | **Source of Truth** | `.cursor/rules/dziugas-onepager.mdc` |
@@ -16,8 +16,8 @@
 
 ```
 03_Dziugas/
-├── index.html                         ← LT default page (v1.7.2)
-├── index.en.html                      ← EN page (v1.7.2)
+├── index.html                         ← LT default page (v1.7.8)
+├── index.en.html                      ← EN page (v1.7.8)
 ├── index.lt.html                      ← LT redirect helper
 ├── CHANGELOG.md                       ← Version history
 ├── README.md                          ← Project/deploy documentation
@@ -49,7 +49,7 @@
 
 - [x] Local asset references are valid (`png/jpg` files present and referenced correctly).
 - [x] LT and EN pages point to deploy-safe local assets.
-- [x] Metadata version is aligned to `v1.7.2` across active documents.
+- [x] Metadata version is aligned to `v1.7.8` across active documents.
 - [x] Project has baseline repo docs and ignore rules.
 - [x] GitHub Pages workflow is present for automatic deploy on `main`.
 - [x] Reveal animations have no-JS and reduced-motion accessibility fallbacks.

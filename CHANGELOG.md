@@ -8,6 +8,44 @@
 
 ---
 
+## [v1.7.8] — 2026-04-13
+
+### Strategy Section — Pilot Budget, Reach, EU (Preliminary)
+
+**Changed**
+- Replaced the multi-initiative “AI priorities” narrative in `#strategy` with a single pilot economics story in:
+  - `index.html` (LT)
+  - `index.en.html` (EN)
+- Added indicative MVP cost buckets:
+  - MVP hardware ~€3,000
+  - MVP engineering ~€7,000
+  - Analytics ~€2,000
+  - Combined guide ~€12,000 (explicitly non-final)
+- Repurposed the heatmap bars to show **budget mix** (25% / 58% / 17%) instead of abstract priority scores.
+- Added a short “reach / media equivalency ~€150,000” paragraph framed as preliminary and non-guaranteed.
+- Added a concise **EU AI innovation funding** follow-up line after MVP proof.
+- Bumped document meta versions to `1.7.8` in both localized pages.
+
+**Result**
+- Strategy reads on-topic for board discussion: investable pilot line items, visibility upside, and a credible next funding step.
+
+---
+
+## [v1.7.7] — 2026-04-13
+
+### Minimal Top Navigation (LT + EN)
+
+**Changed**
+- Reduced in-nav anchor links to three essentials: problem, solution, pilot (`index.html`, `index.en.html`).
+- Removed duplicate attribution line in LT nav (`Parengė promptanatomy.app` — already implied by brand title).
+- Shortened primary nav CTA label to `30 min.` for less visual noise.
+- Added matching `nav-links` / `nav-cta` styles and responsive breakpoints on EN page for parity with LT.
+
+**Result**
+- Cleaner first-read header with less repetition; deeper sections remain reachable via scroll and footer links.
+
+---
+
 ## [v1.7.6] — 2026-04-13
 
 ### Lean Messaging Refresh (LT + EN)

@@ -4,7 +4,7 @@
   "brand": "Džiugas",
   "prepared_by": "promptanatomy.app",
   "repository": "03_Dziugas",
-  "current_version": "1.7.2",
+  "current_version": "1.7.8",
   "last_updated": "2026-04-13",
   "status": "active",
   "source_of_truth": ".cursor/rules/dziugas-onepager.mdc",
@@ -15,7 +15,7 @@
       "file": "../index.html",
       "type": "presentation",
       "format": "html",
-      "version": "1.7.2",
+      "version": "1.7.8",
       "audience": "Board of Directors — Žemaitijos Pienas AB",
       "confidentiality": "confidential",
       "description": "Lithuanian-first premium one-page strategic proposal for AI-Guardian computer vision quality control in Džiugas ripening."
@@ -26,7 +26,7 @@
       "file": "../index.en.html",
       "type": "presentation",
       "format": "html",
-      "version": "1.7.2",
+      "version": "1.7.8",
       "audience": "Board of Directors — Žemaitijos Pienas AB",
       "confidentiality": "confidential",
       "description": "English version of the board one-pager with the same structure and visual system."

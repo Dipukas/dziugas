@@ -6,7 +6,7 @@
     <title>DŽIUGAS AI-Guardian — Board Presentation</title>
     <meta name="description" content="AI-Guardian: Computer vision quality control for Džiugas premium cheese ripening. Strategic proposal for the board of Žemaitijos Pienas AB.">
     <meta name="author" content="promptanatomy.app">
-    <meta name="version" content="1.7.6">
+    <meta name="version" content="1.7.8">
     <meta name="date" content="2026-04-13">
     <meta name="theme-color" content="#0A0A0A">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,6 +203,48 @@
             display: flex;
             align-items: center;
             gap: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: rgba(234, 184, 50, 0.12);
+            border: 1px solid rgba(234, 184, 50, 0.25);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(234, 184, 50, 0.2);
+            border-color: rgba(234, 184, 50, 0.35);
+            color: var(--accent-light);
+        }
+
+        @media (max-width: 1100px) {
+            .nav-links { display: none; }
         }
 
         .lang-switch {
@@ -1130,6 +1172,7 @@
         }
 
         @media (max-width: 768px) {
+            .nav-cta { display: none; }
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1161,7 +1204,12 @@
                 <div class="nav-title">AI-Guardian <span>by Prompt Anatomy</span></div>
             </div>
             <div class="nav-right">
-                <div class="nav-attr"><span style="color:var(--accent);">&#9889;</span> Prepared by <strong style="color:var(--text-secondary);">promptanatomy.app</strong></div>
+                <div class="nav-links">
+                    <a href="#problem">Challenge</a>
+                    <a href="#solution">Solution</a>
+                    <a href="#pilot">Pilot</a>
+                </div>
+                <a href="mailto:info@promptanatomy.app" class="nav-cta">30 min.</a>
                 <div class="lang-switch" aria-label="Language switcher">
                     <a href="./index.lt.html">LT</a>
                     <span>/</span>
@@ -1366,97 +1414,107 @@
 
         <div class="divider"></div>
 
-        <!-- ═══ STRATEGIC PRIORITIES ═══ -->
+        <!-- ═══ PILOT INVESTMENT & REACH (PRELIMINARY) ═══ -->
         <section class="section container" id="strategy">
-            <div style="text-align:center; max-width:680px; margin:0 auto; margin-bottom:48px;" class="reveal">
-                <div class="section-label" style="justify-content:center;">Strategic Roadmap</div>
+            <div style="text-align:center; max-width:720px; margin:0 auto; margin-bottom:48px;" class="reveal">
+                <div class="section-label" style="justify-content:center;">Preliminary figures</div>
                 <h2 style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700; letter-spacing:-1px; margin-bottom:12px;">
-                    AI <span class="gold-text">Priorities</span>
+                    Small pilot budget, <span class="gold-text">large reach</span>
                 </h2>
-                <p style="color:var(--text-secondary); font-size:15px;">
-                    Three initiatives sequenced by impact and readiness.
+                <p style="color:var(--text-secondary); font-size:15px; line-height:1.65;">
+                    Below are indicative line items for discussion (not a final contract). The pilot MVP splits into three cost buckets; combined they land around <strong>~€12,000</strong>.
                 </p>
             </div>
 
             <div class="strategy-cards">
-                <!-- CORE -->
                 <div class="strategy-card glass reveal" style="border-top: 3px solid var(--phase-core);">
                     <div class="strategy-card-header">
                         <div class="strategy-icon" style="background:rgba(234,184,50,0.1); color:var(--phase-core);">
-                            <i class="fa-solid fa-shield-halved"></i>
+                            <i class="fa-solid fa-camera"></i>
                         </div>
-                        <span class="badge" style="color:var(--phase-core); border-color:rgba(234,184,50,0.3);">Core · Phase 1</span>
+                        <span class="badge" style="color:var(--phase-core); border-color:rgba(234,184,50,0.3);">Indicative</span>
                     </div>
-                    <h3>AI-Guardian</h3>
-                    <p>Computer vision quality control for ripening. Fastest path to quality-risk reduction.</p>
+                    <h3>MVP hardware</h3>
+                    <p>Camera, kit, installation — minimum viable stack for the proof.</p>
                     <div class="strategy-focus">
-                        <div class="strategy-focus-label" style="color:var(--phase-core);">Goal</div>
-                        <div class="strategy-focus-value">Protect every wheel across the full cycle.</div>
+                        <div class="strategy-focus-label" style="color:var(--phase-core);">Guide</div>
+                        <div class="strategy-focus-value">~€3,000</div>
                     </div>
                 </div>
-                <!-- STRATEGIC -->
                 <div class="strategy-card glass reveal reveal-delay-1" style="border-top: 3px solid var(--phase-strategic);">
                     <div class="strategy-card-header">
                         <div class="strategy-icon" style="background:rgba(59,130,246,0.1); color:var(--phase-strategic);">
-                            <i class="fa-solid fa-truck-fast"></i>
+                            <i class="fa-solid fa-code"></i>
                         </div>
-                        <span class="badge" style="color:var(--phase-strategic); border-color:rgba(59,130,246,0.3);">Strategic · Phase 2</span>
+                        <span class="badge" style="color:var(--phase-strategic); border-color:rgba(59,130,246,0.3);">Indicative</span>
                     </div>
-                    <h3>Supply Chain Optimizer</h3>
-                    <p>Demand forecasting and logistics optimization for 40+ export markets.</p>
+                    <h3>MVP engineering</h3>
+                    <p>Workflow integration, model logic, operator-facing interface.</p>
                     <div class="strategy-focus">
-                        <div class="strategy-focus-label" style="color:var(--phase-strategic);">Goal</div>
-                        <div class="strategy-focus-value">Increase supply chain resilience and speed.</div>
+                        <div class="strategy-focus-label" style="color:var(--phase-strategic);">Guide</div>
+                        <div class="strategy-focus-value">~€7,000</div>
                     </div>
                 </div>
-                <!-- EXPLORE -->
                 <div class="strategy-card glass reveal reveal-delay-2" style="border-top: 3px solid var(--phase-explore);">
                     <div class="strategy-card-header">
                         <div class="strategy-icon" style="background:rgba(16,185,129,0.1); color:var(--phase-explore);">
-                            <i class="fa-solid fa-chart-line"></i>
+                            <i class="fa-solid fa-chart-simple"></i>
                         </div>
-                        <span class="badge" style="color:var(--phase-explore); border-color:rgba(16,185,129,0.3);">Explore · Phase 3</span>
+                        <span class="badge" style="color:var(--phase-explore); border-color:rgba(16,185,129,0.3);">Indicative</span>
                     </div>
-                    <h3>Consumer Intelligence</h3>
-                    <p>Market signals and consumer insights for faster product decisions.</p>
+                    <h3>Analytics</h3>
+                    <p>KPIs, reporting, comparison vs manual baseline to close the pilot.</p>
                     <div class="strategy-focus">
-                        <div class="strategy-focus-label" style="color:var(--phase-explore);">Goal</div>
-                        <div class="strategy-focus-value">Faster marketing decisions backed by data.</div>
+                        <div class="strategy-focus-label" style="color:var(--phase-explore);">Guide</div>
+                        <div class="strategy-focus-value">~€2,000</div>
                     </div>
                 </div>
             </div>
 
+            <p style="text-align:center; color:var(--text-secondary); font-size:15px; line-height:1.65; max-width:720px; margin:8px auto 28px;" class="reveal">
+                <strong>Combined pilot guide:</strong> ~€12,000 (sum of the three lines; may shift with scope and vendors).
+            </p>
+
             <div class="glass reveal" style="padding:36px;">
-                <div style="font-size:13px; font-weight:700; margin-bottom:24px;">Priority Focus</div>
+                <div style="font-size:13px; font-weight:700; margin-bottom:24px;">Budget mix (MVP)</div>
                 <div class="heatmap">
                     <div class="heatmap-row">
                         <div class="heatmap-label" style="color:var(--phase-core);">
-                            <i class="fa-solid fa-shield-halved" style="margin-right:8px;"></i>AI-Guardian
+                            <i class="fa-solid fa-camera" style="margin-right:8px;"></i>MVP hardware
                         </div>
                         <div class="heatmap-track">
-                            <div class="heatmap-fill" style="width:0%; background:var(--phase-core);" data-width="95%"></div>
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-core);" data-width="25%"></div>
                         </div>
-                        <div class="heatmap-value" style="color:var(--phase-core);">95%</div>
+                        <div class="heatmap-value" style="color:var(--phase-core);">25%</div>
                     </div>
                     <div class="heatmap-row">
                         <div class="heatmap-label" style="color:var(--phase-strategic);">
-                            <i class="fa-solid fa-truck-fast" style="margin-right:8px;"></i>Supply Chain
+                            <i class="fa-solid fa-code" style="margin-right:8px;"></i>MVP engineering
                         </div>
                         <div class="heatmap-track">
-                            <div class="heatmap-fill" style="width:0%; background:var(--phase-strategic);" data-width="70%"></div>
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-strategic);" data-width="58%"></div>
                         </div>
-                        <div class="heatmap-value" style="color:var(--phase-strategic);">70%</div>
+                        <div class="heatmap-value" style="color:var(--phase-strategic);">58%</div>
                     </div>
                     <div class="heatmap-row">
                         <div class="heatmap-label" style="color:var(--phase-explore);">
-                            <i class="fa-solid fa-chart-line" style="margin-right:8px;"></i>Consumer Intel
+                            <i class="fa-solid fa-chart-simple" style="margin-right:8px;"></i>Analytics
                         </div>
                         <div class="heatmap-track">
-                            <div class="heatmap-fill" style="width:0%; background:var(--phase-explore);" data-width="45%"></div>
+                            <div class="heatmap-fill" style="width:0%; background:var(--phase-explore);" data-width="17%"></div>
                         </div>
-                        <div class="heatmap-value" style="color:var(--phase-explore);">45%</div>
+                        <div class="heatmap-value" style="color:var(--phase-explore);">17%</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="glass reveal" style="margin-top:24px; padding:28px 32px;">
+                <p style="color:var(--text-secondary); font-size:15px; line-height:1.65; margin-bottom:14px;">
+                    <strong>Reach / media (indicative):</strong> comms and press equivalency can sit around <strong>~€150,000</strong> at campaign scale — depends on channels, regions, and agency vs in-house execution; shown as a <em>preliminary</em> discussion anchor, not a guarantee.
+                </p>
+                <p style="color:var(--text-secondary); font-size:15px; line-height:1.65; margin:0;">
+                    <strong>EU funding:</strong> after the MVP proof, the next step is packaging materials for <strong>EU AI innovation grants</strong> (application / consortium with partners) — details via email.
+                </p>
             </div>
         </section>
 
